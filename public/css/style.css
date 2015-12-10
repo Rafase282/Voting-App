@@ -1,0 +1,33 @@
+footer {
+  background-color: #222222;
+  color: gray;
+  line-height: 20px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.jumbotron {
+  padding-top: 6%;
+  color: White;
+  background-color: LightSkyBlue;
+}
+
+.fa-bolt {
+  color: Yellow;
+}
+
+.fa-globe {
+  color: Green;
+}
+
+.fa-facebook {
+  color: LightSkyBlue;
+}

@@ -8,17 +8,16 @@ var Footer = require("./footer.js")
 var App = React.createClass({
   render: function() {
     return (
-        <NavBar />,
-        <HeaderArea />,
-        <MainArea />,
+        <div>
+        <NavBar />
+        <HeaderArea />
+        <MainArea />
         <Footer />
+        </div>
     );
   }
 });
 ReactDOM.render(
-  <NavBar />,
-  <HeaderArea />,
-  <MainArea />,
-  <Footer />,
+  <App />,
   document.getElementById('body')
 );

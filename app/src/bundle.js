@@ -5,67 +5,82 @@ var NavBar = require("./navbar.js");
 var HeaderArea = require("./header.js");
 var MainArea = require("./main.js");
 var Footer = require("./footer.js");
+
 var App = React.createClass({
   displayName: 'App',
 
   render: function () {
-    return React.createElement(NavBar, null), React.createElement(HeaderArea, null), React.createElement(MainArea, null), React.createElement(Footer, null);
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(NavBar, null),
+      React.createElement(HeaderArea, null),
+      React.createElement(MainArea, null),
+      React.createElement(Footer, null)
+    );
   }
 });
-ReactDOM.render(React.createElement(NavBar, null), React.createElement(HeaderArea, null), React.createElement(MainArea, null), React.createElement(Footer, null), document.getElementById('body'));
+ReactDOM.render(React.createElement(App, null), document.getElementById('body'));
 
 },{"./footer.js":2,"./header.js":3,"./main.js":4,"./navbar.js":5,"react":163,"react-dom":7}],2:[function(require,module,exports){
 var React = require('react');
 module.exports = React.createClass({
-  displayName: "exports",
+   displayName: "exports",
 
-  render: function () {
-    return React.createElement(
-      "footer",
-      null,
-      React.createElement(
-        "p",
-        null,
-        "Copyright © Rafael J. Rodriguez 2015. All Rights Reserved"
-      ),
-      React.createElement(
-        "p",
-        null,
-        React.createElement(
-          "a",
-          { href: "mailto:rafase282@gmail.com" },
-          React.createElement("i", { className: "fa fa-envelope fa-fw" })
-        ),
-        React.createElement(
-          "a",
-          { href: "https://github.com/Rafase282", target: "_blank" },
-          React.createElement("i", { className: "fa fa-github fa-fw" })
-        ),
-        React.createElement(
-          "a",
-          { href: "https://www.linkedin.com/in/rafase282", target: "_blank" },
-          React.createElement("i", { className: "fa fa-linkedin" })
-        ),
-        React.createElement(
-          "a",
-          { href: "http://codepen.io/Rafase282", target: "_blank" },
-          React.createElement("i", { className: "fa fa-codepen" })
-        ),
-        React.createElement(
-          "a",
-          { href: "https://rafase282.wordpress.com/", target: "_blank" },
-          React.createElement("i", { className: "fa fa-wordpress" })
-        ),
-        React.createElement(
-          "a",
-          { href: "http://www.freecodecamp.com/rafase282", target: "_blank" },
-          "(",
-          React.createElement("i", { className: "fa fa-fire fa-fw" }),
-          ")"
-        )
-      )
-    );
-  }
+   render: function () {
+      return React.createElement(
+         "footer",
+         null,
+         React.createElement(
+            "p",
+            null,
+            "Copyright © Rafael J. Rodriguez 2015. All Rights Reserved"
+         ),
+         React.createElement(
+            "p",
+            null,
+            React.createElement(
+               "a",
+               { href: "mailto:rafase282@gmail.com" },
+               React.createElement(
+                  "i",
+                  { className: "fa fa-envelope fa-fw" },
+                  " "
+               )
+            ),
+            React.createElement(
+               "a",
+               { href: "https://github.com/Rafase282", target: "_blank" },
+               React.createElement("i", { className: "fa fa-github fa-fw" })
+            ),
+            React.createElement(
+               "a",
+               { href: "https://www.linkedin.com/in/rafase282", target: "_blank" },
+               React.createElement("i", { className: "fa fa-linkedin" }),
+               " "
+            ),
+            React.createElement(
+               "a",
+               { href: "http://codepen.io/Rafase282", target: "_blank" },
+               React.createElement("i", { className: "fa fa-codepen" }),
+               " "
+            ),
+            React.createElement(
+               "a",
+               { href: "https://rafase282.wordpress.com/", target: "_blank" },
+               React.createElement("i", { className: "fa fa-wordpress" }),
+               " "
+            ),
+            React.createElement(
+               "a",
+               { href: "http://www.freecodecamp.com/rafase282", target: "_blank" },
+               "(",
+               React.createElement("i", { className: "fa fa-fire fa-fw" }),
+               ")"
+            )
+         )
+      );
+   }
 });
 
 },{"react":163}],3:[function(require,module,exports){
@@ -77,7 +92,7 @@ var HeaderArea = React.createClass({
   render: function () {
     return React.createElement(
       "section",
-      { "class": "jumbotron center" },
+      { className: "jumbotron center" },
       React.createElement(
         "h2",
         null,
@@ -101,8 +116,8 @@ module.exports = HeaderArea;
 },{"react":163}],4:[function(require,module,exports){
 var React = require('react');
 
-var MainArea = React.createClass({
-  displayName: "MainArea",
+module.exports = React.createClass({
+  displayName: "exports",
 
   render: function () {
     return React.createElement(
@@ -164,7 +179,6 @@ var MainArea = React.createClass({
     );
   }
 });
-module.exports = MainArea;
 
 },{"react":163}],5:[function(require,module,exports){
 var React = require('react');

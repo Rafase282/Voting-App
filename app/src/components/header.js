@@ -1,10 +1,14 @@
-//var React = require('react');
-var ReactDOM = require('react-dom');
+var React = require('react');
 
-ReactDOM.render(
-  <h2> Voting App</h2>,
-  <h4>Create custom polls with live results.</h4>,
-  <button type="button" class="btn btn-success">Sign up</button>,
-  document.getElementById('header')
-);
-
+var HeaderArea = React.createClass({
+  render: function() {
+    return (
+      <section class="jumbotron center">
+      <h2> Voting App</h2>
+      <h4>Create custom polls with live results.</h4>
+      <button type="button" className="btn btn-success">Sign up</button>
+      </section>
+    );
+  }
+});
+module.exports=HeaderArea;

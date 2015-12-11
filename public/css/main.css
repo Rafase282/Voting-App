@@ -1,6 +1,6 @@
 footer {
   background-color: #222222;
-  color: gray;
+  color: Gray;
   line-height: 20px;
   padding-top: 10px;
   padding-bottom: 6px;
@@ -28,6 +28,6 @@ footer {
   color: Green;
 }
 
-.fa-facebook {
+.fa-facebook, a {
   color: LightSkyBlue;
 }

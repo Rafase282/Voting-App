@@ -11,4 +11,5 @@ var HeaderArea = React.createClass({
     );
   }
 });
+// You could also just do module.exports = React.createClass({ at the begining instead.
 module.exports=HeaderArea;

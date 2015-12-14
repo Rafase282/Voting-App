@@ -31,3 +31,7 @@ footer {
 .fa-facebook, a {
   color: LightSkyBlue;
 }
+
+.hideMe {
+  display: none;
+}

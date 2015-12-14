@@ -1,10 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var NavBar = require("./navbar.js");
-var HeaderArea = require("./header.js");
-var MainArea = require("./main.js");
-var Footer = require("./footer.js");
+var NavBar = require('./navbar.js');
+var HeaderArea = require('./header.js');
+var MainArea = require('./main.js');
+var Footer = require('./footer.js');
 
 var App = React.createClass({
   displayName: 'App',
@@ -89,28 +89,40 @@ var React = require('react');
 var HeaderArea = React.createClass({
   displayName: "HeaderArea",
 
+  getInitialState: function () {
+    return { presed: false };
+  },
+  handleClick: function (event) {
+    this.setState({ presed: !this.state.presed });
+    if (!this.state.presed) {
+      var element = document.getElementById("btn-hide");
+      //element.classList.add("hideMe");
+      element.className = element.className + " hideMe";
+    }
+  },
   render: function () {
     return React.createElement(
       "section",
       { className: "jumbotron center" },
       React.createElement(
-        "h2",
+        "h1",
         null,
         " Voting App"
       ),
       React.createElement(
-        "h4",
+        "h2",
         null,
         "Create custom polls with live results."
       ),
       React.createElement(
         "button",
-        { type: "button", className: "btn btn-success" },
+        { type: "button", id: "btn-hide", className: "btn btn-success", onClick: this.handleClick },
         "Sign up"
       )
     );
   }
 });
+// You could also just do module.exports = React.createClass({ at the begining instead.
 module.exports = HeaderArea;
 
 },{"react":163}],4:[function(require,module,exports){

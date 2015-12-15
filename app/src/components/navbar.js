@@ -17,6 +17,13 @@ var NavBar =  React.createClass({
       element.className = element.className + " hideMe";
     }
   },
+  unhideMe: function(event){
+    this.setState({
+      signup: this.state.signup = false
+    });
+    var element = document.getElementById("btn-hide");
+    element.classList.remove("hideMe");
+  },
   render: function() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -27,20 +34,20 @@ var NavBar =  React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">Voting App</a>
+            <a className="navbar-brand" href="#" onClick={this.unhideMe}>Voting App</a>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
-              <li className="active"><a href="#">Home</a></li>
+              <li className="active"><a href="#" onClick={this.unhideMe}>Home</a></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="#">
-                  <span className="glyphicon glyphicon-user" onClick={this.handleClick}></span> Sign Up</a>
+                <a href="#" onClick={this.handleClick}>
+                  <span className="glyphicon glyphicon-user"></span> Sign Up</a>
               </li>
               <li>
                 <a href="#">
-                  <span className="glyphicon glyphicon-log-in"></span> Login</a>
+                  <span className="glyphicon glyphicon-log-in" id="btn-hide"></span> Login</a>
               </li>
             </ul>
           </div>

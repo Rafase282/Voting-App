@@ -14,7 +14,7 @@ var App = React.createClass({
       'div',
       null,
       React.createElement(NavBar, null),
-      React.createElement(HeaderArea, { states: this.state }),
+      React.createElement(HeaderArea, { fromNav: this }),
       React.createElement(MainArea, null),
       React.createElement(Footer, null)
     );
@@ -105,7 +105,7 @@ var HeaderArea = React.createClass({
       ),
       React.createElement(
         "button",
-        { type: "button", id: "btn-hide", className: "btn btn-success", onClick: this.handleClick },
+        { type: "button", id: "btn-hide", className: "btn btn-success", onClick: this.props.handleClick },
         "Sign up"
       )
     );
@@ -123,7 +123,7 @@ module.exports = React.createClass({
   render: function () {
     return React.createElement(
       "main",
-      null,
+      { className: "main" },
       React.createElement(
         "section",
         { className: "container-fluid center" },
@@ -132,7 +132,7 @@ module.exports = React.createClass({
           { className: "row" },
           React.createElement(
             "div",
-            { className: "col-sm-3 col-md-4 col-lg-4" },
+            { className: "col-sm-4 col-lg-4" },
             React.createElement("i", { className: "fa fa-bolt fa-5x" }),
             React.createElement(
               "h3",
@@ -147,7 +147,7 @@ module.exports = React.createClass({
           ),
           React.createElement(
             "div",
-            { className: "col-sm-3 col-md-4 col-lg-4" },
+            { className: "col-sm-4 col-lg-4" },
             React.createElement("i", { className: "fa fa-globe fa-5x" }),
             React.createElement(
               "h3",
@@ -162,7 +162,7 @@ module.exports = React.createClass({
           ),
           React.createElement(
             "div",
-            { className: "col-sm-3 col-md-4 col-lg-4" },
+            { className: "col-sm-4 col-lg-4" },
             React.createElement("i", { className: "fa fa-facebook fa-5x" }),
             React.createElement(
               "h3",
@@ -176,7 +176,8 @@ module.exports = React.createClass({
             )
           )
         )
-      )
+      ),
+      React.createElement("section", { id: "push" })
     );
   }
 });
@@ -203,6 +204,13 @@ var NavBar = React.createClass({
       element.className = element.className + " hideMe";
     }
   },
+  unhideMe: function (event) {
+    this.setState({
+      signup: this.state.signup = false
+    });
+    var element = document.getElementById("btn-hide");
+    element.classList.remove("hideMe");
+  },
   render: function () {
     return React.createElement(
       "nav",
@@ -222,7 +230,7 @@ var NavBar = React.createClass({
           ),
           React.createElement(
             "a",
-            { className: "navbar-brand", href: "#" },
+            { className: "navbar-brand", href: "#", onClick: this.unhideMe },
             "Voting App"
           )
         ),
@@ -237,7 +245,7 @@ var NavBar = React.createClass({
               { className: "active" },
               React.createElement(
                 "a",
-                { href: "#" },
+                { href: "#", onClick: this.unhideMe },
                 "Home"
               )
             )
@@ -250,8 +258,8 @@ var NavBar = React.createClass({
               null,
               React.createElement(
                 "a",
-                { href: "#" },
-                React.createElement("span", { className: "glyphicon glyphicon-user", onClick: this.handleClick }),
+                { href: "#", onClick: this.handleClick },
+                React.createElement("span", { className: "glyphicon glyphicon-user" }),
                 " Sign Up"
               )
             ),
@@ -261,7 +269,7 @@ var NavBar = React.createClass({
               React.createElement(
                 "a",
                 { href: "#" },
-                React.createElement("span", { className: "glyphicon glyphicon-log-in" }),
+                React.createElement("span", { className: "glyphicon glyphicon-log-in", id: "btn-hide" }),
                 " Login"
               )
             )

@@ -1,13 +1,37 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
 footer {
   background-color: #222222;
   color: Gray;
-  line-height: 20px;
-  padding-top: 10px;
-  padding-bottom: 6px;
-  position: fixed;
+  position: absolute;
   text-align: center;
   width: 100%;
+  right: 0;
   bottom: 0;
+  left: 0;
+  padding-top: 10px;
+}
+
+.navbar {
+  position:relative;
 }
 
 .center {
@@ -15,6 +39,8 @@ footer {
 }
 
 .jumbotron {
+  top: -50px;
+  position: relative;
   padding-top: 6%;
   color: White;
   background-color: LightSkyBlue;
@@ -34,4 +60,8 @@ footer {
 
 .hideMe {
   display: none;
+}
+
+#push {
+  padding-bottom: 25px;
 }

@@ -14,7 +14,7 @@ var App = React.createClass({
       'div',
       null,
       React.createElement(NavBar, null),
-      React.createElement(HeaderArea, null),
+      React.createElement(HeaderArea, { states: this.state }),
       React.createElement(MainArea, null),
       React.createElement(Footer, null)
     );
@@ -89,17 +89,6 @@ var React = require('react');
 var HeaderArea = React.createClass({
   displayName: "HeaderArea",
 
-  getInitialState: function () {
-    return { presed: false };
-  },
-  handleClick: function (event) {
-    this.setState({ presed: !this.state.presed });
-    if (!this.state.presed) {
-      var element = document.getElementById("btn-hide");
-      //element.classList.add("hideMe");
-      element.className = element.className + " hideMe";
-    }
-  },
   render: function () {
     return React.createElement(
       "section",
@@ -195,9 +184,25 @@ module.exports = React.createClass({
 },{"react":163}],5:[function(require,module,exports){
 var React = require('react');
 
-module.exports = React.createClass({
-  displayName: "exports",
+var NavBar = React.createClass({
+  displayName: "NavBar",
 
+  getInitialState: function () {
+    return {
+      signup: true,
+      login: false
+    };
+  },
+  handleClick: function (event) {
+    this.setState({
+      signup: !this.state.signup
+    });
+    if (this.state.signup || this.state.login) {
+      var element = document.getElementById("btn-hide");
+      //element.classList.add("hideMe");
+      element.className = element.className + " hideMe";
+    }
+  },
   render: function () {
     return React.createElement(
       "nav",
@@ -246,7 +251,7 @@ module.exports = React.createClass({
               React.createElement(
                 "a",
                 { href: "#" },
-                React.createElement("span", { className: "glyphicon glyphicon-user" }),
+                React.createElement("span", { className: "glyphicon glyphicon-user", onClick: this.handleClick }),
                 " Sign Up"
               )
             ),
@@ -266,6 +271,7 @@ module.exports = React.createClass({
     );
   }
 });
+module.exports = NavBar;
 
 },{"react":163}],6:[function(require,module,exports){
 // shim for using process in browser

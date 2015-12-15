@@ -1,6 +1,22 @@
 var React = require('react');
 
-module.exports = React.createClass({
+var NavBar =  React.createClass({
+  getInitialState: function() {
+    return {
+      signup: true,
+      login: false
+    };
+  },
+  handleClick: function(event) {
+    this.setState({
+      signup: !this.state.signup
+    });
+    if (this.state.signup || this.state.login) {
+      var element = document.getElementById("btn-hide");
+      //element.classList.add("hideMe");
+      element.className = element.className + " hideMe";
+    }
+  },
   render: function() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -20,7 +36,7 @@ module.exports = React.createClass({
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <a href="#">
-                  <span className="glyphicon glyphicon-user"></span> Sign Up</a>
+                  <span className="glyphicon glyphicon-user" onClick={this.handleClick}></span> Sign Up</a>
               </li>
               <li>
                 <a href="#">
@@ -33,3 +49,4 @@ module.exports = React.createClass({
       );
   }
 });
+module.exports = NavBar;

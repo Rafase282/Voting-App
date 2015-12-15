@@ -10,7 +10,7 @@ var App = React.createClass({
     return (
       < div >
       < NavBar / >
-      < HeaderArea / >
+      <HeaderArea states = {this.state} />
       < MainArea / >
       < Footer / >
       < /div>

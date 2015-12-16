@@ -9,12 +9,35 @@ var Footer = require('./footer.js');
 var App = React.createClass({
   displayName: 'App',
 
+  getInitialState: function () {
+    return {
+      signup: true,
+      login: false
+    };
+  },
+  handleClick: function (event) {
+    this.setState({
+      signup: !this.state.signup
+    });
+    if (this.state.signup || this.state.login) {
+      var element = document.getElementById("btn-hide");
+      //element.classList.add("hideMe");
+      element.className = element.className + " hideMe";
+    }
+  },
+  unhideMe: function (event) {
+    this.setState({
+      signup: this.state.signup = false
+    });
+    var element = document.getElementById("btn-hide");
+    element.classList.remove("hideMe");
+  },
   render: function () {
     return React.createElement(
       'div',
       null,
-      React.createElement(NavBar, null),
-      React.createElement(HeaderArea, { fromNav: this }),
+      React.createElement(NavBar, { loggedin: this.state.login, signup: this.state.signup, onClick: this.handleClick.bind(this), unhideMe: this.unhideMe.bind(this) }),
+      React.createElement(HeaderArea, { loggedin: this.state.login, signup: this.state.signup, onClick: this.handleClick.bind(this), unhideMe: this.unhideMe.bind(this) }),
       React.createElement(MainArea, null),
       React.createElement(Footer, null)
     );
@@ -105,7 +128,7 @@ var HeaderArea = React.createClass({
       ),
       React.createElement(
         "button",
-        { type: "button", id: "btn-hide", className: "btn btn-success", onClick: this.props.handleClick },
+        { type: "button", id: "btn-hide", className: "btn btn-success", onClick: this.props.onClick },
         "Sign up"
       )
     );
@@ -188,29 +211,6 @@ var React = require('react');
 var NavBar = React.createClass({
   displayName: "NavBar",
 
-  getInitialState: function () {
-    return {
-      signup: true,
-      login: false
-    };
-  },
-  handleClick: function (event) {
-    this.setState({
-      signup: !this.state.signup
-    });
-    if (this.state.signup || this.state.login) {
-      var element = document.getElementById("btn-hide");
-      //element.classList.add("hideMe");
-      element.className = element.className + " hideMe";
-    }
-  },
-  unhideMe: function (event) {
-    this.setState({
-      signup: this.state.signup = false
-    });
-    var element = document.getElementById("btn-hide");
-    element.classList.remove("hideMe");
-  },
   render: function () {
     return React.createElement(
       "nav",
@@ -230,7 +230,7 @@ var NavBar = React.createClass({
           ),
           React.createElement(
             "a",
-            { className: "navbar-brand", href: "#", onClick: this.unhideMe },
+            { className: "navbar-brand", href: "#", onClick: this.props.unhideMe },
             "Voting App"
           )
         ),
@@ -245,7 +245,7 @@ var NavBar = React.createClass({
               { className: "active" },
               React.createElement(
                 "a",
-                { href: "#", onClick: this.unhideMe },
+                { href: "#", onClick: this.props.unhideMe },
                 "Home"
               )
             )
@@ -258,7 +258,7 @@ var NavBar = React.createClass({
               null,
               React.createElement(
                 "a",
-                { href: "#", onClick: this.handleClick },
+                { href: "#", onClick: this.props.onClick },
                 React.createElement("span", { className: "glyphicon glyphicon-user" }),
                 " Sign Up"
               )
@@ -269,7 +269,7 @@ var NavBar = React.createClass({
               React.createElement(
                 "a",
                 { href: "#" },
-                React.createElement("span", { className: "glyphicon glyphicon-log-in", id: "btn-hide" }),
+                React.createElement("span", { className: "glyphicon glyphicon-log-in" }),
                 " Login"
               )
             )

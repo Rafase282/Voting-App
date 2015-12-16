@@ -14,7 +14,7 @@ var App = React.createClass({
   },
   handleClick: function(event) {
     this.setState({
-      signup: !this.state.signup
+      signup: this.state.signup = true
     });
     if (this.state.signup || this.state.login) {
       var element = document.getElementById("btn-hide");

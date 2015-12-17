@@ -17,28 +17,36 @@ var App = React.createClass({
   },
   handleClick: function (event) {
     this.setState({
-      signup: !this.state.signup
+      signup: this.state.signup = true
     });
     if (this.state.signup || this.state.login) {
-      var element = document.getElementById("btn-hide");
+      var header = document.getElementById("btn-hide");
+      var main = document.getElementById("main");
+      var form = document.getElementById("form");
       //element.classList.add("hideMe");
-      element.className = element.className + " hideMe";
+      header.className = header.className + " hideMe";
+      main.className = main.className + " hideMe";
+      form.classList.remove("hideMe");
     }
   },
   unhideMe: function (event) {
     this.setState({
       signup: this.state.signup = false
     });
-    var element = document.getElementById("btn-hide");
-    element.classList.remove("hideMe");
+    var header = document.getElementById("btn-hide");
+    var main = document.getElementById("main");
+    var form = document.getElementById("form");
+    header.classList.remove("hideMe");
+    main.classList.remove("hideMe");
+    form.className = "hideMe";
   },
   render: function () {
     return React.createElement(
       'div',
       null,
       React.createElement(NavBar, { loggedin: this.state.login, signup: this.state.signup, onClick: this.handleClick.bind(this), unhideMe: this.unhideMe.bind(this) }),
-      React.createElement(HeaderArea, { loggedin: this.state.login, signup: this.state.signup, onClick: this.handleClick.bind(this), unhideMe: this.unhideMe.bind(this) }),
-      React.createElement(MainArea, null),
+      React.createElement(HeaderArea, { loggedin: this.state.login, signup: this.state.signup, onClick: this.handleClick.bind(this), unhideMe: this.unhideMe.bind(this), SignUp: true }),
+      React.createElement(MainArea, { loggedin: this.state.login, signup: this.state.signup, onClick: this.handleClick.bind(this), unhideMe: this.unhideMe.bind(this) }),
       React.createElement(Footer, null)
     );
   }
@@ -145,62 +153,107 @@ module.exports = React.createClass({
 
   render: function () {
     return React.createElement(
-      "main",
-      { className: "main" },
+      "div",
+      null,
       React.createElement(
-        "section",
-        { className: "container-fluid center" },
+        "main",
+        { id: "main" },
         React.createElement(
-          "div",
-          { className: "row" },
+          "section",
+          { className: "container-fluid center" },
           React.createElement(
             "div",
-            { className: "col-sm-4 col-lg-4" },
-            React.createElement("i", { className: "fa fa-bolt fa-5x" }),
+            { className: "row" },
             React.createElement(
-              "h3",
-              null,
-              "Live Results"
+              "div",
+              { className: "col-sm-4 col-lg-4" },
+              React.createElement("i", { className: "fa fa-bolt fa-5x" }),
+              React.createElement(
+                "h3",
+                null,
+                "Live Results"
+              ),
+              React.createElement(
+                "p",
+                null,
+                "Live graphs show your poll results immediately in an easy to understand format. One graph will not provide the whole picture, that's why we provide multiple graph types to better describe your results."
+              )
             ),
             React.createElement(
-              "p",
-              null,
-              "Live graphs show your poll results immediately in an easy to understand format. One graph will not provide the whole picture, that's why we provide multiple graph types to better describe your results."
-            )
-          ),
-          React.createElement(
-            "div",
-            { className: "col-sm-4 col-lg-4" },
-            React.createElement("i", { className: "fa fa-globe fa-5x" }),
-            React.createElement(
-              "h3",
-              null,
-              "Works Everywhere"
+              "div",
+              { className: "col-sm-4 col-lg-4" },
+              React.createElement("i", { className: "fa fa-globe fa-5x" }),
+              React.createElement(
+                "h3",
+                null,
+                "Works Everywhere"
+              ),
+              React.createElement(
+                "p",
+                null,
+                "Traditional desktop computers now represent only 30% of Internet traffic. Your poll must work on the tablets, smart phones, netbooks and notebooks that your visitors are using. Our responsive designs do just that."
+              )
             ),
             React.createElement(
-              "p",
-              null,
-              "Traditional desktop computers now represent only 30% of Internet traffic. Your poll must work on the tablets, smart phones, netbooks and notebooks that your visitors are using. Our responsive designs do just that."
-            )
-          ),
-          React.createElement(
-            "div",
-            { className: "col-sm-4 col-lg-4" },
-            React.createElement("i", { className: "fa fa-facebook fa-5x" }),
-            React.createElement(
-              "h3",
-              null,
-              "Social Integration"
-            ),
-            React.createElement(
-              "p",
-              null,
-              "Free integrated facebook or traditional comments allow your poll voters to provide immediate feedback and discuss results. Social share buttons encourage your poll voters to help spread the word."
+              "div",
+              { className: "col-sm-4 col-lg-4" },
+              React.createElement("i", { className: "fa fa-facebook fa-5x" }),
+              React.createElement(
+                "h3",
+                null,
+                "Social Integration"
+              ),
+              React.createElement(
+                "p",
+                null,
+                "Free integrated facebook or traditional comments allow your poll voters to provide immediate feedback and discuss results. Social share buttons encourage your poll voters to help spread the word."
+              )
             )
           )
-        )
+        ),
+        React.createElement("section", { id: "push" })
       ),
-      React.createElement("section", { id: "push" })
+      React.createElement(
+        "main",
+        { id: "form", className: "hideMe" },
+        React.createElement(
+          "form",
+          { className: "center" },
+          "Name:",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", name: "name" }),
+          React.createElement("br", null),
+          " E-Mail:",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", name: "email" }),
+          React.createElement("br", null),
+          " Password:",
+          React.createElement("br", null),
+          React.createElement("input", { type: "password", name: "password" }),
+          React.createElement("br", null),
+          React.createElement("br", null),
+          React.createElement("input", { type: "submit", value: "Sign Up", className: "btn btn-success" }),
+          React.createElement(
+            "button",
+            { type: "button", className: "btn btn-info" },
+            "Use ",
+            React.createElement("i", { className: "fa fa-twitter fa-fw" })
+          ),
+          React.createElement(
+            "button",
+            { type: "button", className: "btn btn-danger" },
+            "Use ",
+            React.createElement("i", { className: "fa fa-google-plus fa-fw" })
+          ),
+          React.createElement(
+            "button",
+            { type: "button", className: "btn btn-default" },
+            "Use ",
+            React.createElement("i", { className: "fa fa-github fa-fw" })
+          )
+        ),
+        React.createElement("section", { id: "push" })
+      )
     );
   }
 });

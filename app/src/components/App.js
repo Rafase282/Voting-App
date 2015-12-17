@@ -17,24 +17,32 @@ var App = React.createClass({
       signup: this.state.signup = true
     });
     if (this.state.signup || this.state.login) {
-      var element = document.getElementById("btn-hide");
+      var header = document.getElementById("btn-hide");
+      var main = document.getElementById("main");
+      var form = document.getElementById("form");
       //element.classList.add("hideMe");
-      element.className = element.className + " hideMe";
-    }
+      header.className = header.className + " hideMe";
+      main.className = main.className + " hideMe";
+      form.classList.remove("hideMe");
+    } 
   },
   unhideMe: function(event){
     this.setState({
       signup: this.state.signup = false
     });
-    var element = document.getElementById("btn-hide");
-    element.classList.remove("hideMe");
+    var header = document.getElementById("btn-hide");
+    var main = document.getElementById("main");
+    var form = document.getElementById("form");
+    header.classList.remove("hideMe");
+    main.classList.remove("hideMe");
+    form.className = "hideMe";
   },
   render: function() {
     return (
       < div >
       < NavBar loggedin={this.state.login} signup={this.state.signup} onClick={this.handleClick.bind(this)} unhideMe={this.unhideMe.bind(this)}/ >
-      < HeaderArea loggedin={this.state.login} signup={this.state.signup} onClick={this.handleClick.bind(this)} unhideMe={this.unhideMe.bind(this)}/>
-      < MainArea / >
+      < HeaderArea loggedin={this.state.login} signup={this.state.signup} onClick={this.handleClick.bind(this)} unhideMe={this.unhideMe.bind(this)} SignUp/>
+      < MainArea loggedin={this.state.login} signup={this.state.signup} onClick={this.handleClick.bind(this)} unhideMe={this.unhideMe.bind(this)}/ >
       < Footer / >
       < /div>
     );

@@ -283,7 +283,7 @@ var NavBar = React.createClass({
           ),
           React.createElement(
             "a",
-            { className: "navbar-brand", href: "#", onClick: this.props.unhideMe },
+            { className: "navbar-brand", onClick: this.props.unhideMe },
             "Voting App"
           )
         ),
@@ -298,7 +298,7 @@ var NavBar = React.createClass({
               { className: "active" },
               React.createElement(
                 "a",
-                { href: "#", onClick: this.props.unhideMe },
+                { onClick: this.props.unhideMe },
                 "Home"
               )
             )
@@ -311,7 +311,7 @@ var NavBar = React.createClass({
               null,
               React.createElement(
                 "a",
-                { href: "#", onClick: this.props.onClick },
+                { onClick: this.props.onClick },
                 React.createElement("span", { className: "glyphicon glyphicon-user" }),
                 " Sign Up"
               )
@@ -321,7 +321,7 @@ var NavBar = React.createClass({
               null,
               React.createElement(
                 "a",
-                { href: "#" },
+                null,
                 React.createElement("span", { className: "glyphicon glyphicon-log-in" }),
                 " Login"
               )

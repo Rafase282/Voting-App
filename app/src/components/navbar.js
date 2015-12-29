@@ -11,20 +11,20 @@ var NavBar =  React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" onClick={this.props.unhideMe}>Voting App</a>
+            <a className="navbar-brand" data-value = {"default"} onClick={this.props.onClick}>Voting App</a>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
-              <li className="active"><a onClick={this.props.unhideMe}>Home</a></li>
+              <li className="active"><a data-value = {"default"} onClick={this.props.onClick}>Home</a></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li>
-                <a onClick={this.props.onClick}>
-                  <span className="glyphicon glyphicon-user"></span> Sign Up</a>
+              <li data-value = {"signup"} onClick={this.props.onClick}>
+                <a data-value = {"signup"} >
+                  <span data-value = {"signup"} className="glyphicon glyphicon-user"></span><span data-value = {"signup"}> Sign Up</span></a>
               </li>
-              <li>
-                <a>
-                  <span className="glyphicon glyphicon-log-in"></span> Login</a>
+              <li data-value = {"login"} onClick={this.props.onClick}>
+                <a data-value = {"login"}>
+                  <span data-value = {"login"} className="glyphicon glyphicon-log-in"></span><span data-value = {"login"}> Login</span></a>
               </li>
             </ul>
           </div>

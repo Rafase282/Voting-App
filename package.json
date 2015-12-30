@@ -29,13 +29,17 @@
   "dependencies": {
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
+    "browser-sync": "^2.10.1",
     "browserify": "^12.0.1",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
+    "gulp": "^3.9.0",
+    "gulp-live-server": "0.0.29",
     "mongodb": "^2.1.0",
     "mongoose": "^4.3.0",
     "passport": "^0.3.2",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

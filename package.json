@@ -4,7 +4,8 @@
   "description": "A Voting App that allows you to create live polls.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,8 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
   }
 }

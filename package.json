@@ -1,5 +1,5 @@
 {
-  "name": "voting-app",
+  "name": "voting-app-r282",
   "version": "0.0.1",
   "description": "A Voting App that allows you to create live polls.",
   "main": "server.js",

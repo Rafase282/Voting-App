@@ -1,11 +1,11 @@
 .color-Bp, .color-Bp:hover, .color-Bp:active {
-  background-color: #01579b; }
+  background-color: #004d40; }
 
 .color-Bp-light, .color-Bp-light:hover, .color-Bp-light:active {
-  background-color: #1e88e5; }
+  background-color: #00bfa5; }
 
 .color-Tp {
-  color: #01579b; }
+  color: #004d40; }
 
 .color-Ts {
   color: #ffffff; }
@@ -14,25 +14,25 @@
   color: #bdbdbd; }
 
 .color-Tp-light {
-  color: #1e88e5; }
+  color: #00bfa5; }
 
 .ErrColor {
   background-color: #b71c1c; }
 
 .InfoColor {
-  background-color: #1e88e5; }
+  background-color: #00bfa5; }
 
 .SuccColor {
   background-color: #43a047; }
 
 #quick {
-  color: #1e88e5; }
+  color: #00bfa5; }
 
 #site {
-  color: #1e88e5; }
+  color: #00bfa5; }
 
 #secured {
-  color: #1e88e5; }
+  color: #00bfa5; }
 
 body {
   display: flex;

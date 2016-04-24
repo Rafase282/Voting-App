@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  main.container
+    .row.center-align
+      .col.s12
+        h1 Voting App
+        if !user
+          a.waves-effect.color-Bp-light.btn(type='button', onclick="window.location.href='/signup'") Create account
+            i.material-icons.left cloud
+        .push
+      .col.s4
+        i#quick.material-icons.large flash_on
+        p.promo-caption Speeds up development
+        p.light.center
+          | We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.
+      .col.s4
+        i#site.material-icons.large group
+        p.promo-caption User Experience Focused
+        p.light.center
+          | By utilizing elements and principles of Material Design, we were able to create a framework that focuses on User Experience.
+      .col.s4
+        i#secured.material-icons.large settings
+        p.promo-caption Easy to work with
+        p.light.center
+          | We have provided detailed documentation as well as specific code examples to help new users get started.
+      .push

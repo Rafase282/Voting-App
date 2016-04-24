@@ -1,0 +1,47 @@
+.color-Bp, .color-Bp:hover, .color-Bp:active {
+  background-color: #01579b; }
+
+.color-Bp-light, .color-Bp-light:hover, .color-Bp-light:active {
+  background-color: #1e88e5; }
+
+.color-Tp {
+  color: #01579b; }
+
+.color-Ts {
+  color: #ffffff; }
+
+.color-Ts-dark {
+  color: #bdbdbd; }
+
+.color-Tp-light {
+  color: #1e88e5; }
+
+.ErrColor {
+  background-color: #b71c1c; }
+
+.InfoColor {
+  background-color: #1e88e5; }
+
+.SuccColor {
+  background-color: #43a047; }
+
+#quick {
+  color: #1e88e5; }
+
+#site {
+  color: #1e88e5; }
+
+#secured {
+  color: #1e88e5; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Titillium Web", sans-serif; }
+
+main {
+  flex: 1 0 auto; }
+
+.push {
+  padding-bottom: 50px; }

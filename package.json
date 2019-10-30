@@ -22,7 +22,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "eslint": "^2.8.0",
+    "eslint": "^6.6.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.1"
   }
